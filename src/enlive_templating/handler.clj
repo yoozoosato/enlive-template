@@ -1,7 +1,8 @@
 (ns enlive-templating.handler
   (:use compojure.core)
   (:require [compojure.handler :as handler]
-            [compojure.route :as route]))
+            [compojure.route :as route]
+            [net.cgrand.enlive-html :as html]))
 
 (defroutes app-routes
   (GET "/" [] "Hello World")
