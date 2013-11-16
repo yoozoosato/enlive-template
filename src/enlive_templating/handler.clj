@@ -9,16 +9,21 @@
   []
   [:div] (html/substitute (str (rand-int 10))))
 
-(html/deftemplate signup {:parser html/xml-parser}
-  "templates/signup.html"
+(html/deftemplate signup "templates/signup.html"
   []
   [:div#pg_1] (html/substitute "Please sign up.")
 )
 
+(html/deftemplate welcome "templates/welcome.html"
+  []
+  [:div#pg_1] (html/substitute "name")
+)
+
 (defroutes app-routes
-  (GET "/" [] "Hello World")
+  (GET "/" [] "<a href=\"/signup\">signup<a>")
   (GET "/random-number" [] (random-number))
   (GET "/signup" [] (signup))
+  (GET "/welcome" [] (welcome))
   (route/resources "/")
   (route/not-found "Not Found"))
 
