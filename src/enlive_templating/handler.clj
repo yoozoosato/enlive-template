@@ -15,15 +15,15 @@
 )
 
 (html/deftemplate welcome "templates/welcome.html"
-  []
-  [:div#pg_1] (html/substitute "name")
+  [name]
+  [:div#pg_1] (html/substitute name)
 )
 
 (defroutes app-routes
   (GET "/" [] "<a href=\"/signup\">signup<a>")
   (GET "/random-number" [] (random-number))
   (GET "/signup" [] (signup))
-  (GET "/welcome" [] (welcome))
+  (GET "/welcome" [name] (welcome name))
   (route/resources "/")
   (route/not-found "Not Found"))
 
